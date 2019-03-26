@@ -49,6 +49,8 @@ export default class TimelineElementsHeader extends Component {
             ? f.monthMedium
             : width < 120 ? f.monthMediumLong : f.monthLong
       )
+    } else if (unit === 'isoWeek') {
+      return time.format(f.isoWeek)
     } else if (unit === 'day') {
       return time.format(width < 150 ? f.dayShort : f.dayLong)
     } else if (unit === 'hour') {
@@ -73,6 +75,8 @@ export default class TimelineElementsHeader extends Component {
       return time.format(
         width < 37 ? f.monthShort : width < 85 ? f.monthMedium : f.monthLong
       )
+    } else if (unit === 'isoWeek') {
+      return time.format(f.isoWeek)
     } else if (unit === 'day') {
       return time.format(
         width < 47

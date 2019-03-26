@@ -63,12 +63,12 @@ export function iterateTimes(start, end, unit, timeSteps, callback) {
   let time = moment(start).startOf(unit)
 
   if (timeSteps[unit] && timeSteps[unit] > 1) {
-    let value = time.get(unit)
+    let value = time.get(unit === 'isoWeek' ? 'week' : unit)
     time.set(unit, value - value % timeSteps[unit])
   }
 
   while (time.valueOf() < end) {
-    let nextTime = moment(time).add(timeSteps[unit] || 1, `${unit}s`)
+    let nextTime = moment(time).add(timeSteps[unit] || 1, `${unit === 'isoWeek' ? 'week' : unit}s`)
     callback(time, nextTime)
     time = nextTime
   }
@@ -101,7 +101,9 @@ export function getMinUnit(zoom, width, timeSteps) {
     minute: 60,
     hour: 60,
     day: 24,
-    month: 30,
+    isoWeek: 7,
+    month: 4.34524,
+    // month: 30,
     year: 12
   }
 
@@ -147,7 +149,9 @@ export function getNextUnit(unit) {
     second: 'minute',
     minute: 'hour',
     hour: 'day',
-    day: 'month',
+    day: 'isoWeek',
+    isoWeek: 'month',
+    // day: 'month',
     month: 'year'
   }
 

@@ -106,6 +106,7 @@ export default class ReactCalendarTimeline extends Component {
       second: PropTypes.number,
       minute: PropTypes.number,
       hour: PropTypes.number,
+      isoWeek: PropTypes.number,
       day: PropTypes.number,
       month: PropTypes.number,
       year: PropTypes.number
@@ -551,7 +552,7 @@ export default class ReactCalendarTimeline extends Component {
   showPeriod = (from, unit) => {
     let visibleTimeStart = from.valueOf()
     let visibleTimeEnd = moment(from)
-      .add(1, unit)
+      .add(1, unit === 'isoWeek' ? 'week' : unit)
       .valueOf()
     let zoom = visibleTimeEnd - visibleTimeStart
 
@@ -569,7 +570,7 @@ export default class ReactCalendarTimeline extends Component {
       let nextUnit = getNextUnit(unit)
 
       visibleTimeStart = from.startOf(nextUnit).valueOf()
-      visibleTimeEnd = moment(visibleTimeStart).add(1, nextUnit)
+      visibleTimeEnd = moment(visibleTimeStart).add(1, nextUnit === 'isoWeek' ? 'week' : nextUnit)
       zoom = visibleTimeEnd - visibleTimeStart
     }
 

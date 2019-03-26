@@ -13,7 +13,7 @@ const defaultProps = {
   canvasTimeStart: 1000 * 60 * 60 * 8, // eight hours into the epoch - need to adjust for Mike Joyce being in CST :)
   canvasTimeEnd: 1000 * 60 * 60 * 10, // ten hours into the epoch
   canvasWidth: 1000,
-  minUnit: 'day',
+  minUnit: 'isoWeek',
   timeSteps: {},
   width: 400,
   headerLabelFormats: defaultHeaderLabelFormats,
@@ -148,7 +148,7 @@ describe('Header', () => {
         wrapper
           .find('.rct-label')
           .text()
-          .includes('Thursday, 1st')
+          .includes('1')
       ).toBeTruthy()
       wrapper.setProps({
         headerLabelFormats: {
@@ -158,6 +158,7 @@ describe('Header', () => {
           monthMedium: 'YYYY',
           monthMediumLong: 'YYYY',
           monthLong: 'YYYY',
+          isoWeek: 'w',
           dayShort: 'L',
           dayLong: 'dddd',
           hourShort: 'HH',
@@ -172,6 +173,7 @@ describe('Header', () => {
           monthShort: 'MM',
           monthMedium: 'MMM',
           monthLong: 'MMMM',
+          isoWeek: 'dddd',
           dayShort: 'D',
           dayMedium: 'dd',
           dayMediumLong: 'ddd',
@@ -192,7 +194,7 @@ describe('Header', () => {
         wrapper
           .find('.rct-label')
           .text()
-          .includes('Thursday')
+          .includes('Monday')
       ).toBeTruthy()
     })
   })

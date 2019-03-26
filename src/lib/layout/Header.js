@@ -98,7 +98,6 @@ class Header extends Component {
             headerLabelGroupHeight={headerLabelGroupHeight}
             headerLabelHeight={headerLabelHeight}
             scrollHeaderRef={scrollHeaderRef}
-
           />
         </div>
         {rightSidebar}

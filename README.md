@@ -257,6 +257,7 @@ Default:
   minute: 1,
   hour: 1,
   day: 1,
+  isoWeek: 1,
   month: 1,
   year: 1
 }

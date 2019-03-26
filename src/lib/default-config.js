@@ -16,6 +16,7 @@ export const defaultTimeSteps = {
   minute: 1,
   hour: 1,
   day: 1,
+  isoWeek: 1,
   month: 1,
   year: 1
 }
@@ -27,6 +28,7 @@ export const defaultHeaderLabelFormats = {
   monthMedium: 'MM/YYYY',
   monthMediumLong: 'MMM YYYY',
   monthLong: 'MMMM YYYY',
+  isoWeek: 'w',
   dayShort: 'L',
   dayLong: 'dddd, LL',
   hourShort: 'HH',
@@ -42,6 +44,7 @@ export const defaultSubHeaderLabelFormats = {
   monthShort: 'MM',
   monthMedium: 'MMM',
   monthLong: 'MMMM',
+  isoWeek: 'w',
   dayShort: 'D',
   dayMedium: 'dd D',
   dayMediumLong: 'ddd, Do',
